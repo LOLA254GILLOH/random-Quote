@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Random Quote</title>
+	
+	<script>
+		const quoteBank = [
+			{
+				quote: "Knowledge speaks, but wisdom listens.",
+				author: "Jimi Hendrix"
+			},
+			{
+				quote: "You have to believe in yourself when no one else does.",
+				author: "Serena Williams"
+			},
+			{
+				quote: "When you have a dream, you’ve got to grab it and never let go.",
+				author: "Carol Burnett"
+			}
+		]
+
+		window.onload = init;
+		function init() {
+			generateQuote()
+		}
+
+		function generateQuote() {
+			let quoteSize = quoteBank.length;
+			let randomIndex = Math.floor(Math.random() * quoteSize);
+			let randomQuoteData = quoteBank[randomIndex];
+
+			document.getElementById("text").innerText = randomQuoteData.quote;
+			document.getElementById("author").innerText = randomQuoteData.author;
+		}
+
+	</script>
+	
+	<style>
+		* {
+  
+			}
+
+			body {
+			  padding: 2rem 0 0 2rem;
+			}
+
+
+			#quote-box {
+			  background-color: lightgrey;
+			  width: 80%;
+			  border-radius: 20px;
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  transform: translate(-50%, -50%);
+			}
+
+			#text {
+			  font-size: 4rem;
+			  font-weight: bold;
+			  padding: 20px;
+			}
+
+			#author {
+			  font-size: 3rem;
+			  font-style: italic;
+			  font-weight: 200;
+			  text-align: right;
+			  padding-right: 20px;
+			}
+
+			#buttons {
+			  position: sticky;
+			  padding-bottom: 20px;
+			}
+
+			#new-quote {
+			  margin-left: 30px;
+			  border: 1px solid darkgrey;
+			  background-color: grey;
+			  font-size: 40px;
+			  color: white;
+			}
+
+			#twitter {
+			  font-size:30px;
+			}
+			#tweet-quote {
+			  float: right;
+			  margin-top: 1rem;
+			  margin-right: 30px;
+			}
+	</style>
+
+</head>
+<body>
+	<h1>Random Quote</h1>
+	<wrapper id="quote-box">
+		<div id="text"></div>
+		<div id="author"></div>
+		<button id="new-quote" onclick="generateQuote();">New Quote</button>
+		<a target="_blank" href="twitter.com/intent/tweet" id="tweet-quote">Tweet Quote</a>
+	</wrapper>
+	<script src=" https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
